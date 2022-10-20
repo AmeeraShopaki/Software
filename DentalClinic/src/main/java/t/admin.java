@@ -1,12 +1,6 @@
 package t;
-import javax.swing.*;
-
-
-import java.awt.print.Book;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 public class admin {
     int id;
     int pass;

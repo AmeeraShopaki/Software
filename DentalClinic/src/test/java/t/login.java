@@ -5,18 +5,11 @@ import io.cucumber.java.en.When;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertTrue;
-import io.cucumber.java.en.*;
 public class login {
 
 	
 	static boolean loginflag;
-	
-
-	
-
-	
-	     admin b=new admin();
+  admin b=new admin();
 
 	     @Given("the correct password is {int} and correct id is {int}")
 	    public void theCorrectPasswordIsAndCorrectIdIs(int arg0, int arg1) {
