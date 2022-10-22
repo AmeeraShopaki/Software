@@ -50,7 +50,7 @@ void dataAdd() {
 	doctorMobileNumber.add(9726132L);
 	doctorMobileNumber.add(9729642L);
 	doctorMobileNumber.add(9721643L);
-	doctorCity.add("nablus");
+	doctorCity.add("ramallah");
 	doctorCity.add("salfet");
 	doctorCity.add("nablus");
 }
