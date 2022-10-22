@@ -70,7 +70,7 @@ void admin() throws Exception
 		System.out.println("\t\t |                         |");
 		System.out.println("\t\t |       WELCOME ADMIN     |");
 		System.out.println("\t\t |_________________________|");
-System.out.print("\n\n1.Doctor list\t2.Registered Patients\t3.Pateints with Appointment\t4.Add Companies and drug providers \n\n \t5.Companies List  \t6.Add a service or offer \t7.Service List \n\n Enter Your Choice.");
+System.out.print("\n\n1.Doctor list\t2.Registered Patients\t3.Pateints with Appointment\t4.Add Companies and drug providers \n\n \t5.Companies List  \t6.Add a service or offer \t7.Service List  8.Exit\n\n Enter Your Choice.");
 		choice=sc.nextByte();
 		switch(choice)
 		{
@@ -192,6 +192,8 @@ System.out.print("\n\n1.Doctor list\t2.Registered Patients\t3.Pateints with Appo
 			serviceRegistration();
 			flag=false;
 			break;
+			
+			
 		case 7:
 			if(servicetName.isEmpty())
 			{
@@ -227,6 +229,9 @@ System.out.print("\n\n1.Doctor list\t2.Registered Patients\t3.Pateints with Appo
 			}
 			
 			break;
+		case 8:
+		{System.out.println("YOU LOG OUT FROM THE SYSTEM :) ");
+		System.exit(0);}
 		default:
 				System.out.println("Wrong choice");
 				Thread.sleep(1000);
@@ -250,7 +255,7 @@ void patient() throws Exception
 		System.out.println("\t\t | Welcome to Patient Page!|");
 		System.out.println("\t\t |_________________________|");
 		System.out.println(" ");
-		System.out.println("1.Login \t 2.Registration\n");
+		System.out.println("1.Login \t 2.Registration\n  \t3.Exit");
 		int ch=sc.nextInt();
 		switch(ch)
 		{
@@ -274,7 +279,9 @@ void patient() throws Exception
 				flag=false;
 				break;
 			
-
+			case 3:{System.out.println("YOU LOG OUT FROM THE SYSTEM :) ");
+			System.exit(0);}
+			
 			default:
 				System.out.println("\nYou entered wrong choice. enter your choice again....!!!");
 				flag= true;
@@ -305,31 +312,23 @@ void doctor() throws Exception
 		System.out.println(" ");
 		
 
-		System.out.println("1. Login \t 2.Registration");
+		System.out.println("1.Login  \t 2.Registration  3.Exit");
 		choice=sc.nextInt();
 
 		switch(choice)
 		{
 		case 1:
-//			if(doctorName.isEmpty())
-//			{
-//				System.out.println("Register first...!");
-//				flag=false;
-//				Thread.sleep(500);
-//				break;
-//
-//			}
-//			else
-//			{
 				doctorLogin();
 				flag=false;
-//			}
+
 			break;
 		case 2:
 			doctorRegistration();
 			flag= false;
 			break;
-
+		case 3:
+			{System.out.println("YOU LOG OUT FROM THE SYSTEM :) ");
+			System.exit(0);}
 		default:
 			System.out.println("Entered Wrong choice..");
 			flag=true;
@@ -362,8 +361,7 @@ void patientLogin()throws Exception
 		int j;
 	for(j=0; j<=patientName.size()-1;j++)
 	{
-		
-		if((patientName.get(j)).equals(name)&&(patientPassword.get(j)).equals(password))
+	if((patientName.get(j)).equals(name)&&(patientPassword.get(j)).equals(password))
 		{
 			flag1=true;
 
@@ -373,77 +371,79 @@ void patientLogin()throws Exception
 	}
 	
 	System.out.println("select 1.to book appointment   2.to View the available services and offers ");
+	
 	int select=sc.nextInt();
 	switch (select) {
 	case 1 :
-	if(flag1==true)
-	{		
-		Thread.sleep(1000);
-		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-			System.out.println("\t\t  _________________________");
-			System.out.println("\t\t |                         |");
-			System.out.println("\t\t |     Book Appointment    |");
-			System.out.println("\t\t |_________________________|");
-		System.out.println("\n Welcome "+patientName.get(j)+", to book appointment, choose your doctor..");
-		
-		for(int i=0; i<=doctorName.size()-1; i++)
-		{
-			System.out.println((i+1)+". "+doctorName.get(i));
-		}
-		choice=sc.nextByte();
-		doctorID.add(choice);
-		
-
-		
-		while(flag)
-		{
+//	
+		if(flag1==true)
+		{		
 			Thread.sleep(1000);
-
 			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-			System.out.println("\t\t  _________________________");
-			System.out.println("\t\t |                         |");
-			System.out.println("\t\t |     Book Appointment    |");
-			System.out.println("\t\t |_________________________|");
+				System.out.println("\t\t  _________________________");
+				System.out.println("\t\t |                         |");
+				System.out.println("\t\t |     Book Appointment    |");
+				System.out.println("\t\t |_________________________|");
+			System.out.println("\n Welcome "+patientName.get(j)+", to book appointment, choose your doctor..");
 			
+			for(int i=0; i<=doctorName.size()-1; i++)
+			{
+				System.out.println((i+1)+". "+doctorName.get(i));
+			}
+			choice=sc.nextByte();
+			doctorID.add(choice);
 			
-			//for(int i=0; i<=doctorName.size()-1;i++)
-			//{
-				if(choice<=doctorName.size() && choice>0)
-				{
-					System.out.println("\n\nName: \t "+doctorName.get(choice-1)+"\nAge: \t "+doctorAge.get(choice-1)+"\nMobile:  "+doctorMobileNumber.get(choice-1)+"\nCity: \t "+doctorCity.get(choice-1));
-					System.out.println("\n Enter your name: \t");
-					sc.nextLine();
-					patientNameBooking.add(sc.nextLine());
-					System.out.println(" Enter your age: \t");
-					patientAgeBooking.add(sc.nextInt());
-					System.out.println(" Enter your gender: \t");
-					patientGengerBooking.add(sc.next());
 
-					System.out.println("\n Booking Successfull..");
-
-					Thread.sleep(1000);
-					flag=false;
-					break;
-				}
-				else 
-				{
-					System.out.println("\n enter correct input..");
-					flag=true;
-					Thread.sleep(1000);
-				}
 			
+			while(flag)
+			{
+				Thread.sleep(1000);
+
+				new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+				System.out.println("\t\t  _________________________");
+				System.out.println("\t\t |                         |");
+				System.out.println("\t\t |     Book Appointment    |");
+				System.out.println("\t\t |_________________________|");
 				
-			//}
-		}	
+//			
+					if(choice<=doctorName.size() && choice>0)
+					{
+						System.out.println("\n\nName: \t "+doctorName.get(choice-1)+"\nAge: \t "+doctorAge.get(choice-1)+"\nMobile:  "+doctorMobileNumber.get(choice-1)+"\nCity: \t "+doctorCity.get(choice-1));
+						System.out.println("\n Enter your name: \t");
+						sc.nextLine();
+						patientNameBooking.add(sc.nextLine());
+						System.out.println(" Enter your age: \t");
+						patientAgeBooking.add(sc.nextInt());
+						System.out.println(" Enter your gender: \t");
+						patientGengerBooking.add(sc.next());
 
-	}
-	else 
-	{
-		System.out.println("Login unsuccessfull..");
-		Thread.sleep(900);
-		flag=false;
-	}
-	break;
+						System.out.println("\n Booking Successfull..");
+
+						Thread.sleep(1000);
+						flag=false;
+						break;
+					}
+					else 
+					{
+						System.out.println("\n enter correct input..");
+						flag=true;
+						Thread.sleep(1000);
+					}
+				
+					
+				
+			}	
+
+		}
+		else 
+		{
+			System.out.println("Login unsuccessfull..");
+			Thread.sleep(900);
+			flag=false;
+		}
+		break;
+//		
+	
 	case 2 :
 		if(servicetName.isEmpty())
 		{
@@ -457,15 +457,12 @@ void patientLogin()throws Exception
 			{System.out.println((i+1));
 				System.out.println("Service Name: "+servicetName.get(i));
 				System.out.println("Description : "+serviceDescription.get(i));
-				
-				System.out.println("");
-				
 				float cad=(float)(cost.get(i) - ((float)(Discount.get(i)/100.0) * cost.get(i) ) );
 				System.out.println("cost After Discount : "+ cad );
 				System.out.println("");
 			}
 
-			System.out.println("\n\n1. Main menu\t 2. Previous menu");
+			System.out.println("\n\n1. Main menu\t 2. Exit");
 			byte menuCHoice=sc.nextByte();
 			if(menuCHoice==1)
 			{
@@ -473,9 +470,8 @@ void patientLogin()throws Exception
 				
 			}
 			else
-			{
-				break;
-			}
+			{System.out.println("YOU LOG OUT FROM THE SYSTEM :) ");
+			System.exit(0);}
 		}
 		
 		break;
@@ -622,9 +618,9 @@ void serviceRegistration()throws Exception
 	servicetName.add(sc.nextLine());
 	System.out.println("enter Service description : ");
 	serviceDescription.add(sc.nextLine());
-	System.out.println("Enter price before discount %");
+	System.out.println("Enter price before discount :");
 	cost.add(sc.nextInt());
-	System.out.println("Enter discount %");
+	System.out.println("Enter discount % : ");
 	discount=sc.nextInt();
 	
 	
@@ -748,8 +744,7 @@ void doctorLogin() throws Exception
 	
 		if(flag==true)
 		{
-			while(flag11)
-			{
+			
 				new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 				System.out.println("\t\t ----------------------------------------");
 				System.out.println("\t\t| Welcome Doctor "+doctorName.get(i)+"   |");
@@ -780,13 +775,54 @@ void doctorLogin() throws Exception
 						{
 							System.out.println("No Appointments...!");
 							Thread.sleep(3000);
-							flag11=true;
+							
+//							
+							boolean flag2=true;
+							while(flag2)
+							{
+								
+								new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+
+								System.out.println("\t\t  _________________________");
+								System.out.println("\t\t |                         |");
+								System.out.println("\t\t | WELCOME TO DOCTOR PAGE! |");
+								System.out.println("\t\t |_________________________|");
+								System.out.println(" ");
+								
+
+								System.out.println("1.Login  \t 2.Registration \t 3.EXIT");
+								int c=sc.nextInt();
+
+								switch(c)
+								{
+								case 1:
+										doctorLogin();
+										flag2=false;
+
+									break;
+								case 2:
+									doctorRegistration();
+									flag2= false;
+									break;
+								case 3:
+								{System.out.println("YOU LOG OUT FROM THE SYSTEM :) ");
+									System.exit(0);}
+								default:
+									System.out.println("Entered Wrong choice..");
+									flag2=true;
+								}
+							}	
+							
+							
+//							
+							break;
+							
 						}
 
-					break;
 				}
-			}
-		}
+				}	
+			
+		
 		else {
 				System.out.println("Login unsuccessfull..");
 				Thread.sleep(900);
