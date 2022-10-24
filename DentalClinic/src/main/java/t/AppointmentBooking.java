@@ -1,6 +1,10 @@
 package t;
 import java.util.*;
+
 import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 public class AppointmentBooking {
 ArrayList<String> doctorName = new ArrayList<String>();
 ArrayList<String> doctorGender = new ArrayList<String>();
@@ -9,7 +13,7 @@ ArrayList<Integer> doctorAge = new ArrayList<Integer>();
 ArrayList<Long> doctorMobileNumber = new ArrayList<Long>();
 ArrayList<String> doctorCity = new ArrayList<String>();
 
-
+static int count=0;
 ArrayList<Integer>patientAge = new ArrayList<Integer>();
 ArrayList<String>patientName = new ArrayList<String>();
 ArrayList<String>patientGender = new ArrayList<String>();
@@ -29,11 +33,11 @@ ArrayList<Integer>costAfterDiscount = new ArrayList<Integer>();
 ArrayList<String>serviceDescription= new ArrayList<String>();
 
 //500
-ArrayList<String>patientBookingDay = new ArrayList<String>();
-ArrayList<Integer>patientBookingMonth = new ArrayList<Integer>();
-ArrayList<Integer>patientAgeBooking = new ArrayList<Integer>();
+ArrayList<Long>patientPhoneBooking = new ArrayList<Long>();
+ArrayList<String>patientBookingDate = new ArrayList<String>();
+//ArrayList<Integer>patientAgeBooking = new ArrayList<Integer>();
 ArrayList<String>patientNameBooking = new ArrayList<String>();
-ArrayList<String>patientGengerBooking = new ArrayList<String>();
+//ArrayList<String>patientGengerBooking = new ArrayList<String>();
 ArrayList<Byte>doctorID = new ArrayList<Byte>();
 
 ArrayList<String>patientName_Feedback = new ArrayList<String>();
@@ -243,7 +247,7 @@ System.out.println("\n\n1.Doctor list\t2.Patients List \t3.Pateints with Appoint
 			
 			}
 			byte menuCHoice;
-			System.out.println("\n\n1. Main menu\t 2. Previous menu");
+			System.out.println("\n\n1. Main menu\t ");
 			menuCHoice=sc.nextByte();
 			if(menuCHoice==1)
 			{
@@ -274,7 +278,7 @@ System.out.println("\n\n1.Doctor list\t2.Patients List \t3.Pateints with Appoint
 						System.out.println(" ");
 					}
 
-					System.out.println("\n\n1. Main menu\t 2. Previous menu");
+					System.out.println("\n\n1. Main menu");
 					menuCHoice=sc.nextByte();
 					if(menuCHoice==1)
 					{
@@ -301,7 +305,12 @@ System.out.println("\n\n1.Doctor list\t2.Patients List \t3.Pateints with Appoint
 			{
 				for(int i=0; i<=patientNameBooking.size()-1; i++)
 				{
-					System.out.println(i+". "+patientNameBooking.get(i));
+					System.out.print((i+1)+". "); 
+			
+					System.out.println("Patient "+patientNameBooking.get(i) +" was booked in :"+patientBookingDate.get(i));
+				
+					System.out.println(patientNameBooking.get(i) +"'s phone number: "+patientPhoneBooking.get(i) );
+					System.out.println("");
 				}
 
 				Thread.sleep(5000);
@@ -336,7 +345,7 @@ System.out.println("\n\n1.Doctor list\t2.Patients List \t3.Pateints with Appoint
 					System.out.println("");
 				}
 
-				System.out.println("\n\n1. Main menu\t 2. Previous menu");
+				System.out.println("\n\n1. Main menu");
 				menuCHoice=sc.nextByte();
 				if(menuCHoice==1)
 				{
@@ -452,12 +461,46 @@ System.out.println("\n\n1.Doctor list\t2.Patients List \t3.Pateints with Appoint
 	
 }
 
+
+
+
+//  Date
+
+//
+
+//public static boolean isValidDay(String dateToVerify){
+//    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//
+//    try {
+//        sdf.setLenient(false);
+//        sdf.parse(dateToVerify);
+//        LocalDate date = LocalDate.parse(dateToVerify);
+//        LocalDate today = LocalDate.now();
+//        if (date.isBefore(today)) {
+//            System.out.println("Your Booking  in the past");
+//        }else if (date.isEqual(today)) {
+//            System.out.println("Your Booking is today!");
+//        }
+//        return true; } catch (ParseException e) {
+//        System.out.println("Invalid Date");
+//        return false;
+//        
+//    
+//}}
+
+
+//
+//
+//
+
+
+
 void patientLogin()throws Exception
 {
-	int month;
-String day;
-int hour ;
-int minutes;
+//	int month;
+//String day;
+//int hour ;
+//int minutes;
 
 	Scanner sc=new Scanner(System.in);
 	boolean flag=true;
@@ -528,27 +571,19 @@ int minutes;
 				
 //			
 					if(choice<=doctorName.size() && choice>0)
-					{
-						System.out.println("\n\nName: \t "+doctorName.get(choice-1)+"\nAge: \t "+doctorAge.get(choice-1)+"\nMobile:  "+doctorMobileNumber.get(choice-1)+"\nCity: \t "+doctorCity.get(choice-1));
+					{System.out.print("[");
+						System.out.print("Name: "+doctorName.get(choice-1)+" , Age: "+doctorAge.get(choice-1)+" , Mobile: "+doctorMobileNumber.get(choice-1)+" , City: "+doctorCity.get(choice-1));
+						System.out.print("]");
 						System.out.println("\n Enter your name: \t");
 						sc.nextLine();
 						patientNameBooking.add(sc.nextLine());
-						System.out.println(" Enter your age: \t");
-						patientAgeBooking.add(sc.nextInt());
-						System.out.println(" Enter your gender: \t");
-						patientGengerBooking.add(sc.next());
-						System.out.println("Note: We are not accepting any bookings on Fridays");
-						System.out.println("Bookings allowed between 8:00am and 2:00pm");
-						System.out.println(" Enter The Month: \t");
-						patientBookingMonth.add(sc.nextInt());
+						System.out.println(" Enter your phone number: \t");
+						patientPhoneBooking.add(sc.nextLong());
 					
-                   System.out.println(" Enter The Day: \t"); 
-         
-						patientBookingDay.add(sc.next());
-//						if() {}
+						System.out.println("Sorry: We are not accepting any bookings on Fridays");
+						System.out.println("plz Enter The Date of Booking (yyyy-mm-dd): \t");
+						patientBookingDate.add(sc.next());
 						
-					
-					
 						System.out.println("\n Booking Successfull..");
 
 						Thread.sleep(1000);
@@ -969,9 +1004,12 @@ void doctorLogin() throws Exception
 
 
 							if( (i+1)== doctorID.get(j) )
-							{System.out.print("[");
-								System.out.print("patient name: "+patientNameBooking.get(j)+ "  ,  patient age: "+patientAgeBooking.get(j)+"  ,  patient genger: "+patientGengerBooking.get(j));
-								System.out.print("]");
+							{System.out.print((j+1)+". "); 
+							
+							System.out.println("Patient "+patientNameBooking.get(j) +" was booked in :"+patientBookingDate.get(j));
+						
+							System.out.println(patientNameBooking.get(j) +"'s phone number: "+patientPhoneBooking.get(j) );
+							System.out.println("");
 								j++;
 								
 							}
