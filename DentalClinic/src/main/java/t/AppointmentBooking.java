@@ -588,6 +588,7 @@ void patientLogin()throws Exception
 					{System.out.print("[");
 						System.out.print("Name: "+doctorName.get(choice-1)+" , Age: "+doctorAge.get(choice-1)+" , Mobile: "+doctorMobileNumber.get(choice-1)+" , City: "+doctorCity.get(choice-1));
 						System.out.print("]");
+						System.out.println("");
 						System.out.println("Note: We are not accepting any bookings on Fridays");
 //						System.out.println("");
 						System.out.println("\n Enter your name: \t");
@@ -960,7 +961,7 @@ void doctorRegistration() throws Exception
 							System.out.println("Enter password");
 							doctorPassword.add(sc.next());
 							System.out.println("Registration is Successfull.");
-							System.out.println("Details: Name: "+doctorName+" number:"+doctorMobileNumber);
+//							System.out.println("Details: Name: "+doctorName+" number:"+doctorMobileNumber);
 							Thread.sleep(900);
 
 				}
