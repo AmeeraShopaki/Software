@@ -74,14 +74,14 @@ void admin() throws Exception
 	{
 		
 		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-
+		System.out.println("");System.out.println("");
 		System.out.println("\t\t  _________________________");
 		System.out.println("\t\t |                         |");
 		System.out.println("\t\t | WELCOME TO ADMIN PAGE!  |");
 		System.out.println("\t\t |_________________________|");
 		System.out.println(" ");
 		
-
+		System.out.println("");
 		System.out.println("1.Login  \t 2.Exit");
 		choice=sc.nextInt();
 
@@ -111,6 +111,7 @@ void patient() throws Exception
 	while(flag)
 	{
 		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+		System.out.println("");System.out.println("");
 		System.out.println("\t\t  _________________________");
 		System.out.println("\t\t |                         |");
 		System.out.println("\t\t | Welcome to Patient Page!|");
@@ -208,10 +209,12 @@ void adminLogin() throws Exception{
 	String name;
 	byte choice;
 	new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+	System.out.println("");System.out.println("");
 	System.out.println("\t\t  _________________________");
 	System.out.println("\t\t |                         |");
 	System.out.println("\t\t |         Login 		   |");
 	System.out.println("\t\t |_________________________|");
+	System.out.println("");
 
 	System.out.println("Enter your name");
 	name=sc.next();
@@ -231,11 +234,16 @@ void adminLogin() throws Exception{
 	while(flag)
 	{
 		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+		System.out.println("");System.out.println("");
 		System.out.println("\t\t  _________________________");
 		System.out.println("\t\t |                         |");
 		System.out.println("\t\t |       WELCOME ADMIN     |");
 		System.out.println("\t\t |_________________________|");
-System.out.println("\n\n1.Doctor list\t2.Patients List \t3.Pateints with Appointment\t4.Add Companies and drug providers \n\n \t5.Companies List  \t6.Add a service or offer \t7.Service List    8.Exit\n\n Enter Your Choice.");
+		System.out.println("");
+System.out.println("\n\n1.Doctor list    2.Patients List    3.Pateints with Appointment \n\n "
+		+ "4.Add Companies and drug providers    5.Companies List    6.Add a service or offer \n\n "
+		+ "7.Service List    8.Report of the number times  of booking    9.Exit"
+		+ "\n\n Enter Your Choice.");
 		choice=sc.nextByte();
 	
 		switch(choice)
@@ -428,16 +436,26 @@ System.out.println("\n\n1.Doctor list\t2.Patients List \t3.Pateints with Appoint
 //			break;
 //		
 			
-//			
-		case 8:
+			
+//		Report of the number times  of booking
+		case 8 :
+			
+			if(count==0) {	System.out.print(" the number times  of booking in the clinic is: "+count + "\n\n No Appointments yet");}
+			else {
+				System.out.print(" the number times  of booking in the clinic  : ");
+			System.out.println(count);}
+			break;
+		case 9:
 		{System.out.println("YOU LOG OUT FROM THE SYSTEM :) ");
 		System.exit(0);}
+		
 		default:
 				System.out.println("Wrong choice");
 				Thread.sleep(1000);
 				flag=true;
 		}
-
+		Thread.sleep(1500);
+		System.out.println("");System.out.println("");
 		System.out.println("\n\n1. Main menu\t ");
 		int tmenuCHoice=sc.nextByte();
 		if(tmenuCHoice==1)
@@ -489,12 +507,6 @@ System.out.println("\n\n1.Doctor list\t2.Patients List \t3.Pateints with Appoint
 //}}
 
 
-//
-//
-//
-
-
-
 void patientLogin()throws Exception
 {
 //	int month;
@@ -508,10 +520,12 @@ void patientLogin()throws Exception
 	String name;
 	byte choice;
 	new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+	System.out.println("");System.out.println("");
 	System.out.println("\t\t  _________________________");
 	System.out.println("\t\t |                         |");
 	System.out.println("\t\t |         Login 		   |");
 	System.out.println("\t\t |_________________________|");
+	System.out.println("");
 
 	System.out.println("Enter your name");
 	name=sc.next();
@@ -574,18 +588,20 @@ void patientLogin()throws Exception
 					{System.out.print("[");
 						System.out.print("Name: "+doctorName.get(choice-1)+" , Age: "+doctorAge.get(choice-1)+" , Mobile: "+doctorMobileNumber.get(choice-1)+" , City: "+doctorCity.get(choice-1));
 						System.out.print("]");
+						System.out.println("Note: We are not accepting any bookings on Fridays");
+//						System.out.println("");
 						System.out.println("\n Enter your name: \t");
 						sc.nextLine();
 						patientNameBooking.add(sc.nextLine());
 						System.out.println(" Enter your phone number: \t");
 						patientPhoneBooking.add(sc.nextLong());
 					
-						System.out.println("Sorry: We are not accepting any bookings on Fridays");
+					
 						System.out.println("plz Enter The Date of Booking (yyyy-mm-dd): \t");
 						patientBookingDate.add(sc.next());
 						
 						System.out.println("\n Booking Successfull..");
-
+count++;
 						Thread.sleep(1000);
 						flag=false;
 						break;
@@ -732,9 +748,12 @@ void patientRegistration() throws Exception
 	int i=0;
 	long mobileNumber;
 	new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-	System.out.println("\n");
+	System.out.println("");System.out.println("");
+	System.out.println("\t\t  ______________________________________");
+	System.out.println("\t\t |                                      |");
 	System.out.println("\t\t | Welcome to Patient Registration Page!|");
-	System.out.println("\n");
+	System.out.println("\t\t |______________________________________|");
+	System.out.println("");
 	System.out.println("Please enter your name");
 	patientName.add(sc.nextLine());
 	System.out.println("enter your age: ");
@@ -793,10 +812,10 @@ void CompaniesRegistration()throws Exception
 	int i=0;
 	long mobileNumber;
 	new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-	System.out.println("\n");
-	System.out.println("\t\t | welcome admain in  ");
-	System.out.println("\t\t | Companies and drug providers Registration Page!|");
-	System.out.println("\n");
+	System.out.println("");System.out.println("");
+	System.out.println("\t\t  welcome admain in  ");
+	System.out.println("\t\t  Companies and drug providers addition Page!|");
+	System.out.println("");
 	System.out.println("Please enter Company name");
 	companytName.add(sc.nextLine());
 	System.out.println("enter Company location: ");
@@ -839,7 +858,7 @@ void CompaniesRegistration()throws Exception
 		}
 		else 
 		{
-			System.out.println("same mobile numebr is not allowed\n");
+			System.out.println("same mobile numebr is not allowed !! \n");
 			Thread.sleep(500);
 		}
 	}
@@ -852,10 +871,10 @@ void serviceRegistration()throws Exception
 	
 	int discount;
 	new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-	System.out.println("\n");
-	System.out.println("\t\t | welcome admain in  ");
-	System.out.println("\t\t | service and offer Registration Page!|");
-	System.out.println("\n");
+	System.out.println("");System.out.println("");
+	System.out.println("\t\t  welcome admain in  ");
+	System.out.println("\t\t  service and offer addition Page!|");
+	System.out.println("");
 	System.out.println("Please enter service name : ");
 	servicetName.add(sc.nextLine());
 	System.out.println("enter Service description : ");
@@ -890,11 +909,12 @@ void doctorRegistration() throws Exception
 	boolean flag=true, flag1=true;
 				
 		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-
-		System.out.println("\t\t ----------------------------------");
+		System.out.println("");System.out.println("");
+		System.out.println("\t\t __________________________________");
+		System.out.println("\t\t|                                  |");
 		System.out.println("\t\t| This is doctor registration Page |");
-		System.out.println("\t\t ----------------------------------");
-		System.out.println("\n");
+		System.out.println("\t\t|__________________________________|");
+		System.out.println("");
 		
 		System.out.println("Please enter your name");
 		doctorName.add(sc.nextLine());
@@ -961,9 +981,12 @@ void doctorLogin() throws Exception
 	String n;
 
 	new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-	System.out.println("\t\t ----------------------------------------");
+	System.out.println("");	System.out.println("");
+	System.out.println("\t\t ________________________________________");
+	System.out.println("\t\t|                                        |");
 	System.out.println("\t\t|       This is doctor login page        |");
-	System.out.println("\t\t ----------------------------------------");
+	System.out.println("\t\t|________________________________________|");
+	System.out.println("");
 	System.out.println("Enter your Username");
 	n=sc.next();
 	System.out.println("Enter your Password");
@@ -988,9 +1011,12 @@ void doctorLogin() throws Exception
 		{
 			
 				new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-				System.out.println("\t\t ----------------------------------------");
+				System.out.println("");	System.out.println("");
+				System.out.println("\t\t ________________________________________");
+				System.out.println("\t\t|                                        |");
 				System.out.println("\t\t| Welcome Doctor "+doctorName.get(i)+"   |");
-				System.out.println("\t\t ----------------------------------------");
+				System.out.println("\t\t|________________________________________|");
+				System.out.println("");
 				System.out.println("\n\n 1.see your Appointments.   2.see your Patient Feedback.  3.EXIT \n");
 				choice=sc.nextByte();
 				byte j=0;
@@ -1078,7 +1104,7 @@ void doctorLogin() throws Exception
 		
 
 		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-		System.out.println("");
+		System.out.println("");	System.out.println("");
 		System.out.println("           __________________________________________________________");
 		System.out.println("          |                                                          |");
 		System.out.println("          |              WELCOME BACK IN HOME PAGE                   |");
