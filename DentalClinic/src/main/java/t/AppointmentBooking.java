@@ -106,6 +106,50 @@ void admin() throws Exception
 	}	
 	
 }
+void adminC() throws InterruptedException, IOException {
+	Scanner sc=new Scanner(System.in);
+	int choice=0;
+	
+	boolean flag=true;
+	while(flag)
+	{
+		
+		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+
+		System.out.println("\t\t  _________________________");
+		System.out.println("\t\t |                         |");
+		System.out.println("\t\t | WELCOME TO ADMIN PAGE! |");
+		System.out.println("\t\t |_________________________|");
+		System.out.println(" ");
+		
+
+		System.out.println("1.Login  \t 2.Exit");
+		choice=sc.nextInt();
+
+		switch(choice)
+		{
+		case 1:
+			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+			System.out.println("\t\t  _________________________");
+			System.out.println("\t\t |                         |");
+			System.out.println("\t\t |         Login 		   |");
+			System.out.println("\t\t |_________________________|");
+				flag=false;
+
+			break;
+		
+		case 2:
+			{System.out.println("YOU LOG OUT FROM THE SYSTEM :) ");
+			System.exit(0);}
+		default:
+			System.out.println("Entered Wrong choice..");
+			flag=true;
+		}
+	}	
+	
+}
+
+
 
 void patient() throws Exception
 {
@@ -139,7 +183,58 @@ void patient() throws Exception
 				
 				break;
 			case 2:
-				PatientInfo();
+				//PatientInfo();
+				patientRegistration();
+				flag=false;
+				break;
+			
+			case 3:{System.out.println("YOU LOG OUT FROM THE SYSTEM :) ");
+			System.exit(0);}
+			
+			default:
+				System.out.println("\nYou entered wrong choice. enter your choice again....!!!");
+				flag= true;
+				Thread.sleep(1000);
+				break;
+		}
+	}
+}
+void patientC() throws Exception {
+	Scanner sc=new Scanner(System.in);
+	boolean flag=true;
+	while(flag)
+	{
+		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+		System.out.println("\t\t  _________________________");
+		System.out.println("\t\t |                         |");
+		System.out.println("\t\t | Welcome to Patient Page!|");
+		System.out.println("\t\t |_________________________|");
+		System.out.println(" ");
+		System.out.println("1.Login \t 2.Registration\n  \t3.Exit");
+		int ch=sc.nextInt();
+		switch(ch)
+		{
+			case 1:
+				if(patientMobileNumber.isEmpty())
+				{
+					System.out.println("First register yourself then login..!");
+					Thread.sleep(500);
+					break;
+				}
+				else
+				{
+					new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+					System.out.println("\t\t  _________________________");
+					System.out.println("\t\t |                         |");
+					System.out.println("\t\t |         Login 		   |");
+					System.out.println("\t\t |_________________________|");
+					flag=false;
+					
+				}
+				
+				break;
+			case 2:
+				//PatientInfo();
 				patientRegistration();
 				flag=false;
 				break;
@@ -201,7 +296,51 @@ void doctor() throws Exception
 	}	
 
 }
+void doctorC() throws Exception {
 
+	Scanner sc=new Scanner(System.in);
+	int choice=0;
+	
+	boolean flag=true;
+	while(flag)
+	{
+		
+		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+
+		System.out.println("\t\t  _________________________");
+		System.out.println("\t\t |                         |");
+		System.out.println("\t\t | WELCOME TO DOCTOR PAGE! |");
+		System.out.println("\t\t |_________________________|");
+		System.out.println(" ");
+		
+
+		System.out.println("1.Login  \t 2.Registration  3.Exit");
+		choice=sc.nextInt();
+
+		switch(choice)
+		{
+		case 1:
+			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+			System.out.println("\t\t ----------------------------------------");
+			System.out.println("\t\t|       This is doctor login page        |");
+			System.out.println("\t\t ----------------------------------------");
+				flag=false;
+
+			break;
+		case 2:
+			doctorRegistration();
+			flag= false;
+			break;
+		case 3:
+			{System.out.println("YOU LOG OUT FROM THE SYSTEM :) ");
+			System.exit(0);}
+		default:
+			System.out.println("Entered Wrong choice..");
+			flag=true;
+		}
+	}	
+
+}
   
   
 public void adminauthorities() throws Exception {
@@ -469,6 +608,14 @@ void adminLogin() throws Exception{
 	System.out.println("\t\t |                         |");
 	System.out.println("\t\t |         Login 		   |");
 	System.out.println("\t\t |_________________________|");
+	
+	enteradmin();
+	adminTrue();
+	adminauthorities();
+	 if(flagp==false &&flagn==false)System.out.println("Unsuccessful login, uncorrect admin name & passward"); 
+	else if(flagn==false )System.out.println("Unsuccessful login, the admin name is not associated with an account"); 
+	else if(flagp==false)System.out.println("Unsuccessful login, the admin passwprd is not correct"); 	
+	
 }
 	
 
@@ -554,7 +701,52 @@ if((nameP).equals(patientName.get(j))&&(passwordP).equals(patientPassword.get(j)
 }
 }
 
+void patientcheck() throws InterruptedException {
+long mno;
+int i=0;
+
+	boolean flag=true, flag1=true;
 	
+	if(patientMobileNumber.isEmpty())
+	{
+		patientMobileNumber.add((mobileNumberP));
+		System.out.println("Enter password");
+		patientPassword.add(sc.next());
+		System.out.println("Registration is Successfull.");
+		
+		Thread.sleep(900);
+		flag1=false;
+					
+	}
+	else 
+	{
+		for(i=0;i<=patientMobileNumber.size()-1;i++)
+		{
+			mno=patientMobileNumber.get(i);
+			
+			if(mno==mobileNumberP)
+			{
+				
+				flag1=false;
+				break;
+			}
+				
+		}
+		if(flag1==true)
+		{
+		patientMobileNumber.add(mobileNumberP);
+		System.out.println("Enter password");
+		patientPassword.add(sc.next());
+		System.out.println("Registration is Successfull.");
+		Thread.sleep(900);
+		}
+		else 
+		{
+			System.out.println("same mobile numebr is not allowed\n");
+			Thread.sleep(500);
+		}
+	}
+}	
 void patientAuthorities() throws InterruptedException, IOException {
 	Scanner sc=new Scanner(System.in);
 	boolean flag=true;
@@ -779,7 +971,8 @@ void patientLogin()throws Exception
 	System.out.println("\t\t |                         |");
 	System.out.println("\t\t |         Login 		   |");
 	System.out.println("\t\t |_________________________|");
-
+	patiententer();
+	patientAuthorities();
 	
 		
 		
@@ -802,7 +995,8 @@ void patientRegPage() throws InterruptedException, IOException {
 }
 void patientRegistration() throws Exception
 {
-	
+	patientRegPage();
+	 PatientInfo();
 	int i=0;
 	
 	long mno;
@@ -861,7 +1055,50 @@ void companiesRegPage() throws InterruptedException, IOException {
 	System.out.println("\n");
 }
 long mobileNumber;
-
+void companycheack() throws InterruptedException {
+	Scanner sc=new Scanner(System.in);
+	int i=0;
+	long mno;
+	
+	boolean flag=true, flag1=true;
+	
+	if(companyMobileNumber.isEmpty())
+	{
+		companyMobileNumber.add((mobileNumber));
+		System.out.println("Registration is Successfull.");
+		
+		Thread.sleep(900);
+		flag1=false;
+					
+	}
+	else 
+	{
+		for(i=0;i<=companyMobileNumber.size()-1;i++)
+		{
+			mno=companyMobileNumber.get(i);
+			
+			if(mno==mobileNumber)
+			{
+				
+				flag1=false;
+				break;
+			}
+				
+		}
+		if(flag1==true)
+		{
+			companyMobileNumber.add(mobileNumber);
+		
+		System.out.println("Registration is Successfull.");
+		Thread.sleep(900);
+		}
+		else 
+		{
+			System.out.println("same mobile numebr is not allowed\n");
+			Thread.sleep(500);
+		}
+	}
+}
 void companiesInfo() {
 	System.out.println("Please enter Company name");
 	companytName.add(sc.nextLine());
@@ -873,11 +1110,11 @@ void companiesInfo() {
 void CompaniesRegistration()throws Exception
 
 {
+	
+	companiesRegPage();
+	companiesInfo();
 	Scanner sc=new Scanner(System.in);
 	int i=0;
-	
-	
-	
 	long mno;
 	
 	boolean flag=true, flag1=true;
@@ -921,7 +1158,19 @@ void CompaniesRegistration()throws Exception
 }
  
 
-
+void servicecheck() throws InterruptedException {
+	if(discount<=0){
+		System.out.println("discount less than or rqual 0 is not allowed\n");
+		Thread.sleep(500);
+	}
+	else{Discount.add((discount));}
+		
+		System.out.println("Registration is Successfull.");
+		
+		Thread.sleep(900);
+	
+	
+}
 void serviesRegPage() throws InterruptedException, IOException {
 	new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 	System.out.println("\n");
@@ -944,7 +1193,8 @@ void serviceRegistration()throws Exception
 
 {
 	
-	
+	serviesRegPage();
+	serviesInfo() ;
 	if(discount<=0){
 		System.out.println("discount less than or rqual 0 is not allowed\n");
 		Thread.sleep(500);
@@ -984,13 +1234,14 @@ void doctorRegPage() throws InterruptedException, IOException {
 void doctorRegistration() throws Exception
 {
 	
-	Scanner sc=new Scanner(System.in);
+	
+	
+doctorRegPage();
+doctorInfo();
+Scanner sc=new Scanner(System.in);
 int i=0;
 boolean flag=true, flag1=true;
 			
-	
-	
-	
 	long mno;
 
 		
@@ -1032,7 +1283,51 @@ boolean flag=true, flag1=true;
 
 		
 }
+void doctorCheck() throws InterruptedException {
+	Scanner sc=new Scanner(System.in);
+	int i=0;
+	boolean flag=true, flag1=true;
+				
+		long mno;
 
+			
+			
+				for(i=0;i<=doctorMobileNumber.size()-1;i++)
+				{
+					mno=doctorMobileNumber.get(i);
+					
+					if(mno==mobileNumberD)
+					{
+						
+						flag1=false;
+						break;
+					}
+						
+				}
+				if(flag1==true)
+				{
+
+							doctorMobileNumber.add(mobileNumberD);
+							System.out.println("Enter age:");
+							doctorAge.add(sc.nextInt());
+							System.out.println("Enter City: ");
+							doctorCity.add(sc.next());
+							System.out.println("Enter password");
+							doctorPassword.add(sc.next());
+							System.out.println("Registration is Successfull.");
+							System.out.println("Details: Name: "+doctorName+" number:"+doctorMobileNumber);
+							Thread.sleep(900);
+
+				}
+				else {
+					System.out.println("same mobile numebr is not allowed\n");
+					int index=doctorName.size()-1;
+					doctorName.remove(index);
+					Thread.sleep(500);
+
+				}
+
+}
 
 
 
@@ -1064,7 +1359,7 @@ void doctorenter() {
 	System.out.println("Enter your Username");
 	n=sc.next();
 	System.out.println("Enter your Password");
-	String passwordD=sc.next();
+	 passwordD=sc.next();
 }
 void doctorAuthorietes() throws Exception {
 	int i=0;
@@ -1076,7 +1371,7 @@ void doctorAuthorietes() throws Exception {
 	for(i=0; i<=doctorName.size()-1;i++)
 	{
 		
-		if((doctorName.get(i)).equals(n)&&(doctorPassword.get(i)).equals(password))
+		if((doctorName.get(i)).equals(n)&&(doctorPassword.get(i)).equals(passwordD))
 		{
 			flag=true;
 			break;
@@ -1179,6 +1474,38 @@ void doctorAuthorietes() throws Exception {
 //		يرجع للصفحة الرئيسية 
 		
 
+		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+		System.out.println("");	System.out.println("");
+		System.out.println("           __________________________________________________________");
+		System.out.println("          |                                                          |");
+		System.out.println("          |              WELCOME BACK IN HOME PAGE                   |");
+		System.out.println("          |__________________________________________________________|");
+		System.out.println("");
+
+		System.out.println("1.DOCTOR  2.PATIENT   3.ADMIN   4.EXIT ");
+		int cho=sc.nextInt();
+		switch(cho)
+		{
+			case 1:
+				doctor();
+				flag=true;
+				break;
+				case 2:
+				patient();										
+				flag=true;
+				break;
+				case 3:
+				
+				admin();
+				flag= true;
+				break;
+			
+					
+					default:
+					{System.out.println("YOU LOG OUT FROM THE SYSTEM :) ");
+						System.exit(0);}
+
+	}	
 		
 }
 void doctorLogin() throws Exception
@@ -1189,9 +1516,14 @@ void doctorLogin() throws Exception
 	System.out.println("\t\t ----------------------------------------");
 	System.out.println("\t\t|       This is doctor login page        |");
 	System.out.println("\t\t ----------------------------------------");
+	doctorenter();
+	doctorAuthorietes();
+	
+	
 }
 	
 		
+
 			
 		
 			
