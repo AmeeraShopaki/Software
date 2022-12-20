@@ -1,0 +1,10 @@
+t\AppointmentSteps.class
+t\patientRegistrationSteps.class
+t\AddFeedBackSteps.class
+t\acceptans.class
+t\DoctorRegesterationSteps.class
+t\patientLoginSteps.class
+t\AdminLoginSteps.class
+t\AddCompaniesSteps.class
+t\AddServiceSteps.class
+t\DoctorLoginSteps.class

@@ -1,7 +1,7 @@
 Feature: Admin login
 
 
-  Background:user in admin home page
+  Background:user in admin page
 example:
  name|password|
 admin|adminpass123|

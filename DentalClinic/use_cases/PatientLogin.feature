@@ -1,7 +1,7 @@
 Feature: Patient login
 
 
-  Background:user in patient home page
+  Background:user in patient page
 Example:
  name|password|
 ameera|1234|
