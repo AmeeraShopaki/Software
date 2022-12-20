@@ -2,9 +2,7 @@ package t;
 import java.util.*;
 
 import java.io.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
+
 public class AppointmentTest{
 	
   
