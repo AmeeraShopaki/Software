@@ -11,7 +11,7 @@ public class DoctorLoginSteps {
 	
     @Given("Doctor in login page")
     public void doctor_in_login_page() throws Exception {
-           A.doctorC();
+           A.doctor();
     }
 
 	@When("Doctor enter correct name and correct password")

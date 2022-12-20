@@ -13,7 +13,7 @@ public class AdminLoginSteps {
 
      @Given("admin should have name and password")
      public void admin_should_have_name_and_password() throws Exception {
-    	A.adminC();
+    	A.admin();
     	
 
     		
