@@ -32,13 +32,14 @@ ArrayList<Integer>cost = new ArrayList<Integer>();
 ArrayList<Integer>costAfterDiscount = new ArrayList<Integer>();
 ArrayList<String>serviceDescription= new ArrayList<String>();
 
-//500
+
 ArrayList<Long>patientPhoneBooking = new ArrayList<Long>();
 ArrayList<String>patientBookingDate = new ArrayList<String>();
-//ArrayList<Integer>patientAgeBooking = new ArrayList<Integer>();
+
 ArrayList<String>patientNameBooking = new ArrayList<String>();
-//ArrayList<String>patientGengerBooking = new ArrayList<String>();
+
 ArrayList<Byte>doctorID = new ArrayList<Byte>();
+ Scanner sc=new Scanner(System.in);
 
 ArrayList<String>patientName_Feedback = new ArrayList<String>();
 void dataAdd() {
@@ -64,7 +65,7 @@ void dataAdd() {
 
 	
 void admin() throws Exception {
-	Scanner sc=new Scanner(System.in);
+
 	int choice=0;
 	
 	boolean flag=true;
@@ -192,7 +193,7 @@ void admin() throws Exception {
 					
 					break;
 				case 2:
-					//PatientInfo();
+					
 					patientRegistration();
 					flag=false;
 					break;
@@ -264,8 +265,7 @@ void admin() throws Exception {
 	}
 	
 void doctor() throws Exception {
-	Scanner sc=new Scanner(System.in);
-	int choice=0;
+int choice=0;
 	
 	boolean flag=true;
 	while(flag)
@@ -313,11 +313,10 @@ void doctor() throws Exception {
 }
 	void doctorC() throws Exception {
 
-		Scanner sc=new Scanner(System.in);
 		int choice=0;
 		
-		boolean flag=true;
-		while(flag)
+		boolean flag55=true;
+		while(flag55)
 		{
 			
 			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -339,19 +338,19 @@ void doctor() throws Exception {
 				System.out.println("\t\t ----------------------------------------");
 				System.out.println("\t\t|       This is doctor login page        |");
 				System.out.println("\t\t ----------------------------------------");
-					flag=false;
+					flag55=false;
 
 				break;
 			case 2:
 				doctorRegistration();
-				flag= false;
+				flag55= false;
 				break;
 			case 3:
 				{System.out.println("YOU LOG OUT FROM THE SYSTEM :) ");
 				System.exit(0);}
 			default:
 				System.out.println("Entered Wrong choice..");
-				flag=true;
+				flag55=true;
 			}
 		}	
 
@@ -360,7 +359,6 @@ void doctor() throws Exception {
 	boolean flagp=false;
 	boolean fa=true;
 	boolean flag;
-	Scanner sc=new Scanner(System.in);
 
 	  void adminauthorities() throws Exception {
 			byte choice;
@@ -461,15 +459,12 @@ void doctor() throws Exception {
 
 					}
 					break;
-					//4. Add Companies and drug providers 
 				case 4:
 
 					CompaniesRegistration();
 					fa=false;
 					break;
-					//4.Companies and drug providers 
 					
-					//5 company list
 					
 				case 5:
 					if(companytName.isEmpty())
@@ -503,7 +498,7 @@ void doctor() throws Exception {
 					
 					break;
 				
-//				5 company list
+
 				case 6:
 
 					serviceRegistration();
@@ -546,33 +541,7 @@ void doctor() throws Exception {
 					}
 					
 					break;
-//					
-					
-//			case 8:
-//					if(patientName_Feedback.isEmpty())
-//					{
-//						System.out.println("\nNo Feedback yet!");
-//						Thread.sleep(3000);
-//						break;
-//					}
-//					
-//					else
-//					{
-//						for(int i=0; i<=patientName_Feedback.size()-1; i++)
-//						{
-//							System.out.println(i+". "+patientName_Feedback.get(i));
-//					System.out.println(". "+feedback.get(i));
-//						}
-		//
-//						Thread.sleep(5000);
-//						flag=false;
-		//
-//					}
-//					break;
-//				
-					
-					
-//				Report of the number times  of booking
+
 				case 8 :
 					
 					if(count==0) {	System.out.print(" the number times  of booking in the clinic is: "+count + "\n\n No Appointments yet");}
@@ -639,14 +608,14 @@ void doctor() throws Exception {
 		
 				{flagn=true;}
 
-	if((password)!="adminpass123") {flagp=false;}
+	if(!(password).equals("adminpass123")) {flagp=false;}
 		
 
 
 		
 		}
 	void wrongname() throws Exception{
-		if((name)!="admin")
+		if(!(name).equals("admin"))
 		
 				{flagn=false;}
 
@@ -657,11 +626,11 @@ void doctor() throws Exception {
 		
 		}
 	void wronginf() throws Exception{
-		if((name)!="admin")
+		if(!(name).equals("admin"))
 		
 				{flagn=false;}
 
-	if((password)!=("adminpass123")) {flagp=false;}
+	if(!(password).equals("adminpass123")) {flagp=false;}
 		
 		}
 		
@@ -791,13 +760,13 @@ Long mobileNumberP;
 					System.out.println("\t\t |     Book Appointment    |");
 					System.out.println("\t\t |_________________________|");
 					
-//				
+			
 						if(choice<=doctorName.size() && choice>0)
 						{System.out.print("[");
 							System.out.print("Name: "+doctorName.get(choice-1)+" , Age: "+doctorAge.get(choice-1)+" , Mobile: "+doctorMobileNumber.get(choice-1)+" , City: "+doctorCity.get(choice-1));
 							System.out.print("]");
 							System.out.println("Note: We are not accepting any bookings on Fridays");
-//							System.out.println("");
+
 							System.out.println("\n Enter your name: \t");
 							sc.nextLine();
 							patientNameBooking.add(sc.nextLine());
@@ -832,8 +801,7 @@ Long mobileNumberP;
 				Thread.sleep(900);
 				flag=false;
 			}
-			break;
-//			
+			break;			
 		
 		case 2 :
 			if(servicetName.isEmpty())
@@ -869,7 +837,7 @@ Long mobileNumberP;
 			
 			
 			
-//			case 3 --> patient feedback
+
 		case 3 :
 
 			if(flag1==true)
@@ -902,7 +870,7 @@ Long mobileNumberP;
 					System.out.println("\t\t |_________________________|");
 					System.out.println(" \n\n \t\t We strive to satisfy you");
 					
-//				
+				
 						if(choice2<=doctorName.size() && choice2>0)
 						{
 							System.out.println("\n\nName: \t "+doctorName.get(choice2-1)+"\nAge: \t "+doctorAge.get(choice2-1)+"\nMobile:  "+doctorMobileNumber.get(choice2-1)+"\nCity: \t "+doctorCity.get(choice2-1));
@@ -938,8 +906,8 @@ Long mobileNumberP;
 				flag=false;
 			}
 			break;
-//			
-//			
+			
+			
 		default:
 				System.out.println("Wrong choice");
 				Thread.sleep(1000);
@@ -1209,13 +1177,11 @@ Long mobileNumberP;
 							System.out.println("No Appointments...!");
 							Thread.sleep(3000);
 							
-//							
+							
 					
 							break;	}break;
 				
-				//نهاية c1
-//			case 2 to see feedback 	
-//					
+				
 				case 2:
 					if((doctorID.isEmpty()!=true))
 					{
@@ -1240,7 +1206,7 @@ Long mobileNumberP;
 							System.out.println("No Feedback Yet...!");
 							Thread.sleep(3000);
 							
-//					
+					
 							break;	}
 					
 				case 3 :
@@ -1260,9 +1226,6 @@ Long mobileNumberP;
 				
 
 				
-//		
-//		يرجع للصفحة الرئيسية 
-		
 
 		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		System.out.println("");	System.out.println("");
@@ -1611,13 +1574,12 @@ if((nameP).equals(patientName.get(j))&&(passwordP).equals(patientPassword.get(j)
 			System.out.println("\t\t |     Book Appointment    |");
 			System.out.println("\t\t |_________________________|");
 			
-//		
+		
 				if(choice<=doctorName.size() && choice>0)
 				{System.out.print("[");
 					System.out.print("Name: "+doctorName.get(choice-1)+" , Age: "+doctorAge.get(choice-1)+" , Mobile: "+doctorMobileNumber.get(choice-1)+" , City: "+doctorCity.get(choice-1));
 					System.out.print("]");
 					System.out.println("Note: We are not accepting any bookings on Fridays");
-//					System.out.println("");
 					System.out.println("\n Enter your name: \t");
 					sc.nextLine();
 					patientNameBooking.add(sc.nextLine());
@@ -1691,8 +1653,7 @@ if(flag1==true)
 		System.out.println("\t\t |       Add Feedback      |");
 		System.out.println("\t\t |_________________________|");
 		System.out.println(" \n\n \t\t We strive to satisfy you");
-		
-//	
+			
 			if(choice2<=doctorName.size() && choice2>0)
 			{
 				System.out.println("\n\nName: \t "+doctorName.get(choice2-1)+"\nAge: \t "+doctorAge.get(choice2-1)+"\nMobile:  "+doctorMobileNumber.get(choice2-1)+"\nCity: \t "+doctorCity.get(choice2-1));
@@ -1801,7 +1762,8 @@ public static void main(String[] args) throws Exception
 					{System.out.println("YOU LOG OUT FROM THE SYSTEM :) ");
 						System.exit(0);}
 
-	}	}
+	}	
+		}
 }
 
 }
