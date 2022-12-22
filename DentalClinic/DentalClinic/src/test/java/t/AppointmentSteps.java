@@ -43,7 +43,7 @@ public class AppointmentSteps {
 	public void patient_is_stored() throws InterruptedException, IOException {
 		System.out.println("to book an appointment should Register...");
 		A.patientRegPage();
-		   A.PatientInfo();
+		   A.patienInfo();
 		   A.patientcheck();
 
 		

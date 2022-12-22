@@ -42,7 +42,7 @@ public void user_in_add_FeedBack_Page() throws InterruptedException, IOException
 public void this_patient_is_stored() throws InterruptedException, IOException {
 	System.out.println("to add FeedBack should Register...");
 	A.patientRegPage();
-	   A.PatientInfo();
+	   A.patienInfo();
 	   A.patientcheck();
 	A.patiententer();
 	 A.patientAuthorities();

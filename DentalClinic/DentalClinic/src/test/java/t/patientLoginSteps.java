@@ -1,5 +1,6 @@
 package t;
 
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 
@@ -20,7 +21,7 @@ public class patientLoginSteps {
 	@When("patient enter correct name and correct password")
 	public void patient_enter_correct_name_and_correct_password() throws Exception {
 A.patiententer();
-
+//A.patientTrue();
 	}
 
 	@Then("give patient authorities")

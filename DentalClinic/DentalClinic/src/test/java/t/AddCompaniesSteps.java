@@ -20,11 +20,11 @@ public class AddCompaniesSteps {
 	  A.companiesInfo();
 	}
 
-	@Then("Registration company is Successfull")
-	public void registration_company_is_Successfull() throws Exception {
-	  A.companycheack();
-	}
 
+	@Then("Registration comany is Successfull")
+	public void registration_comany_is_Successfull() throws InterruptedException {
+		 A.companycheack();	    
+	}
 
 
 }

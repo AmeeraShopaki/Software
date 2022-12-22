@@ -19,7 +19,7 @@ public class patientRegistrationSteps {
 
 	@When("{string} and {string} and {string} and {string} is filled")
 	public void and_and_and_is_filled(String string, String string2, String string3, String string4) {
-	   A.PatientInfo();
+	   A.patienInfo();
 	}
 
 	@Then("Registration patient is Successfull")
